@@ -55,10 +55,11 @@ public class SecurityConfig {
         return request -> {
             CorsConfiguration config = new CorsConfiguration();
             config.setAllowedHeaders(Collections.singletonList("*"));
-            config.setAllowedMethods(Collections.singletonList("*"));
+            //config.setAllowedMethods(Collections.singletonList("*"));
             //config.setAllowedMethods(Collections.singletonList("GET"));
-            //config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000")); //  허용할 origin
-            config.setAllowedOriginPatterns(Collections.singletonList("*")); //  허용할 origin
+            config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+            config.setAllowedOriginPatterns(Collections.singletonList("http://d10rrjyt8il5jp.cloudfront.net")); //  허용할 origin
+            //config.setAllowedOriginPatterns(Collections.singletonList("*")); //  허용할 origin
             config.setAllowCredentials(true);
             return config;
         };
